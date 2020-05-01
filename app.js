@@ -1,4 +1,5 @@
 const express = require('express');
+
 const app = express();
 const morgan = require('morgan');
 
@@ -6,7 +7,7 @@ const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 
 // 1. middleware
-console.log(process.env.NODE_ENV);
+//console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
