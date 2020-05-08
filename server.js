@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const dotenv = require('dotenv');
 const app = require('./app');
 
@@ -22,38 +21,6 @@ mongoose
     console.log('DB connection successful');
   });
 
-const tourSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'A tour must have a name'],
-    unique: true,
-  },
-  rating: {
-    type: Number,
-    default: 1.0,
-  },
-  price: {
-    type: Number,
-    required: [true, 'A tour must have a price'],
-  },
-});
-
-const Tour = mongoose.model('Tour', tourSchema);
-
-const testTour = new Tour({
-  name: 'The Snow Ball',
-  rating: 4.8,
-  price: 1199,
-});
-
-testTour
-  .save()
-  .then((doc) => {
-    console.log(doc);
-  })
-  .catch((err) => {
-    console.log('Error');
-  });
 //console.log(process.env.PORT);
 const port = 3000 || process.env.PORT;
 app.listen(port, () => {
